@@ -1,0 +1,16 @@
+.container {
+  position: relative;
+}
+
+button {
+  position: fixed;
+  bottom: 50px;
+  right: 50px; 
+  border: 2px solid black;
+  z-index: 999;
+}
+
+.custom-button{
+  background-color: lightgray;
+  color: black;
+}

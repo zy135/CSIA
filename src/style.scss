@@ -1,0 +1,14 @@
+@import "../node_modules/@angular/material/theming";
+@include mat-core();
+
+$my-warn: mat.define-palette(mat.rgb(255, 113, 113));
+
+$my-theme: mat-light-theme($my-warn);
+
+@include angular-material-theme($my-theme);
+
+.lightred{
+    $my-warn: mat.define-palette(mat.rgb(255, 113, 113));
+    @include angular-material-theme($my-theme);
+
+}

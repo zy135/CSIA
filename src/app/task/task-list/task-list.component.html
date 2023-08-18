@@ -1,0 +1,63 @@
+<mat-chip-listbox class="toggleTaskType" [(ngModel)]="selectedOptionValue">
+  <mat-chip-option color="warn" [value]="'All'">All</mat-chip-option>
+  <mat-chip-option color="warn" [value]="'Personal'">Personal</mat-chip-option>
+  <mat-chip-option color="warn" [value]="'Work'">Work</mat-chip-option>
+</mat-chip-listbox>
+
+<div class="taskContainer">
+  <div cdkDropList [cdkDropListData]="filteredTask" (cdkDropListDropped)="drop($event)">
+    <div class="task" *ngFor="let task of filteredTask" cdkDrag (click)="toggleSubtasks(task)">
+      <div class = "textContainer">
+      <div>
+        {{ task.mainTask }} &nbsp;&nbsp;
+      </div>
+        Due: {{ task.dueDate }}
+    </div>
+
+      <div class="editContainer">
+        <div class="progress">
+          <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuemin="0"
+            aria-valuemax="100" [style.width.%]="calculateTaskProgress(task)"></div>
+        </div>
+  
+        <div class="edit">
+          <button mat-mini-fab class="custom-button" [matMenuTriggerFor]="menu" (click)="$event.stopPropagation()">
+            <mat-icon>edit</mat-icon>
+          </button>
+          <mat-menu #menu="matMenu">
+            <button mat-menu-item (click)="$event.stopPropagation(); openSubTaskDialog()"> Add Subtask</button>
+            <button mat-menu-item (click)="$event.stopPropagation(); openEditTaskDialog(task)"> Edit </button>
+          </mat-menu>
+        </div>
+      </div>
+  
+      <div class="card description-card">
+        <div class="card-body" *ngIf="task.expanded">
+          Description: {{ task.description }}
+        </div>
+      </div>
+
+      <div class="subTasks" *ngIf="task.expanded">
+        <div class="subTaskContainer" *ngFor="let subtask of task.subTaskList" (click)="$event.stopPropagation(); toggleSubtasksDescription(subtask)">
+          {{ subtask.title }}
+
+          <div id = "progressBar" class="progress">
+            <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar"
+              aria-valuenow="75" aria-valuemax="100" [style.width.%]="calculateSubtaskProgress(subtask)"></div>
+          </div>          
+          <div class="editSubtask">
+            <button mat-flat-button class="custom-button" (click)="$event.stopPropagation(); openEditSubtaskDialog(subtask)">
+              Edit
+            </button>
+          </div>
+
+          <div class="card description-card">
+            <div class="card-body" *ngIf="subtask.expanded">
+              Description: {{ subtask.description }}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,25 @@
+<div class="container">
+  <button class = "toggleViewButton" mat-raised-button (click)="toggleView()">{{buttonText}}</button>
+
+  <button class = "addEventButton" mat-raised-button >Add Event</button>
+
+  <full-calendar class="calendar" #calendar [options]="calendarOptions"></full-calendar>
+</div>
+
+
+
+<div *ngIf="eventSelected" >
+      <mat-card class="eventDetails">
+          <mat-card-header>
+            <mat-card-title>{{eventSelected.title}}</mat-card-title>
+            <div class="button">
+              <button mat-fab class="custom-button" (click)="deleteEvent()">
+                <mat-icon>delete</mat-icon>
+              </button>
+            </div>  
+            <mat-card-subtitle>Due: {{eventSelected.end}}</mat-card-subtitle>
+          </mat-card-header>
+
+        </mat-card>
+  
+</div>

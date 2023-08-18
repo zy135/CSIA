@@ -1,0 +1,52 @@
+<form [formGroup]="subTaskForm">
+  <div class="container">
+    <div class="datePick">
+      <mat-form-field class="custom-datepicker" >
+          <mat-label>Select Due Date</mat-label>
+          <input matInput required [matDatepicker]="picker" formControlName="dueDate">
+          <mat-hint>MM/DD/YYYY</mat-hint>
+          <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+  
+      <div class="button">
+        <button mat-fab class="custom-button" (click)="closePopUp()">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </div>
+    </div>
+    <div class="taskName">
+      <mat-form-field class="custom-textarea-taskname">
+        <mat-label>Title</mat-label>
+        <input matInput required formControlName="title" />
+      </mat-form-field>
+    </div>
+    <div class="description">
+      <mat-form-field class="custom-textarea-description">
+        <h2 class="descriptionTitle">Description</h2>
+        <textarea matInput placeholder="text" formControlName="description"></textarea>
+      </mat-form-field>
+    </div>
+  
+    <div class="estimatedTime">
+      <mat-form-field class="custom-textarea-estimatedtime">
+          <mat-label>Estimated Time (hours)</mat-label>
+          <input matInput required type="number" formControlName="estimatedTime"/>
+      </mat-form-field>
+    </div>
+        
+      <div class="timeSpent">
+      <mat-form-field >
+          <mat-label>Add Time Spent (hours)</mat-label>
+          <input matInput required type="number" formControlName="timeSpent" />
+      </mat-form-field>
+      </div>
+      
+          <div class="addtaskbutton">
+            <button mat-raised-button class="custom-button" [disabled]="subTaskForm.invalid" (click)="saveTask()">
+                Submit
+            </button>
+            </div>
+    </div>
+  </form>
+  

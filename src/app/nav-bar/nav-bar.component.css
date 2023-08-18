@@ -1,0 +1,23 @@
+/*  */
+.mat-toolbar{
+  background-color: teal;
+  color: white;
+  height: 70px; 
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  z-index: 999;
+}
+
+#popDown{
+  z-index: 999;
+}
+
+a{
+  color:  white;
+}
+
+button.active{
+  background-color: teal;
+}
+  

@@ -1,0 +1,60 @@
+@import "~bootstrap/dist/css/bootstrap.css";
+
+.container{
+    padding-top: 10px;
+}
+.calendar{
+    height: 550px;
+}
+
+
+
+.toggleViewButton{
+    width: 20px;
+    position: absolute;
+    font-size: 12px;
+    height: 30px;
+    margin-top: 25px;
+
+}
+
+.addEventButton{
+    margin-left: 20%;
+    width: 100px;
+    height: 30px;
+    position: absolute;
+    font-size: 12px;
+    margin-top: 25px;
+}
+
+
+:host ::ng-deep .fc-toolbar{
+    font-size: 13.5px;
+    margin-top: 7%;
+
+}
+:host ::ng-deep .fc-toolbar-title{
+    font-size: 16px;
+    margin-top: -54px;
+}
+
+mat-card{
+    background-color: teal;
+}
+
+mat-card-title{
+    color:white ;
+}
+
+.eventDetails{
+    margin: 10px;
+}
+
+.custom-button{
+    background-color: lightcoral;
+    color: white;
+    width: 35px;
+    height: 35px;
+    margin-left: -30px;
+    margin-top: -10px;
+}

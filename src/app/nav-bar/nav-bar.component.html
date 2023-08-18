@@ -1,0 +1,29 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+
+
+  <mat-toolbar color="primary">
+    <mat-toolbar-row>
+      <span class="example-spacer"></span>
+      <button mat-icon-button [matMenuTriggerFor]="menu">
+        <mat-icon>menu</mat-icon>
+      </button>
+      <mat-menu #menu="matMenu" id = "popDown">
+        <button mat-menu-item class="active" routerLink="/task" routerLinkActive="active" (click)="task()">
+          Tasks &nbsp;
+          <a class="fa fa-fw fa-tasks"></a>
+        </button>
+        <button mat-menu-item routerLink="/calendar" routerLinkActive="active" (click)="calendar()" >
+          Calendar &nbsp;
+          <a class="fa fa-fw fa-calendar"></a>
+        </button>
+        <button mat-menu-item routerLink="/inventory" routerLinkActive="active" (click)="report()">
+          Inventory &nbsp;
+          <a class="fa fa-fw fa-bar-chart"></a>
+        </button>
+      </mat-menu>
+      <span> {{pageName}} </span>
+    </mat-toolbar-row>
+  </mat-toolbar>
+
+
+<router-outlet></router-outlet>
